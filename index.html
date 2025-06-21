@@ -2,24 +2,25 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Fetch desde Apps Script</title>
+  <title>Productos desde Planilla</title>
 </head>
 <body>
-  <h1>Contenido desde Apps Script:</h1>
-  <div id="contenido">Cargando...</div>
+  <h1>Lista de Productos:</h1>
+  <div id="contenido">Cargando productos...</div>
 
   <script>
-    fetch("https://script.google.com/macros/s/AKfycbxoMNC-b06YfCUefxklxoW1a5yM9DlqtY6UD1YRLG8jWoVa2kCgqvXKwb8TXMYmyxeJSw/exec") // poné tu URL real
+    fetch("https://script.google.com/macros/s/AKfycbyNaWHlDxvId6FQKarcsHF2QprLEbI_bdlAv_BI9myPwJANNUXu9tYmiRrXY0PMnPIH1A/exec") // poné tu URL real
       .then(res => res.text())
-      .then(txt => {
-        document.getElementById("contenido").textContent = txt;
+      .then(html => {
+        document.getElementById("contenido").innerHTML = html;
       })
       .catch(err => {
-        document.getElementById("contenido").textContent = "Error al cargar contenido.";
+        document.getElementById("contenido").textContent = "Error al cargar productos.";
         console.error(err);
       });
   </script>
 </body>
 </html>
+
 
 
