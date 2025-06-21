@@ -8,7 +8,18 @@
 <body>
   <h1>Contenido dinámico:</h1>
   <div id="contenido">Cargando...</div>
-<p>Mostrando algo</p>
+<script>
+    fetch("https://www.iassa-sa.com.ar/pruebaborrar.txt")
+      .then(response => response.text())
+      .then(texto => {
+        document.getElementById("contenido").textContent = texto;
+      })
+      .catch(error => {
+        document.getElementById("contenido").textContent = "Error al cargar contenido.";
+        console.error("Error:", error);
+      });
+  </script>
+
   
 </body>
 </html>
