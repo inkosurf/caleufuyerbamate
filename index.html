@@ -2,25 +2,34 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Productos desde Planilla</title>
+  <title>Productos desde Sheets</title>
 </head>
 <body>
-  <h1>Lista de Productos:</h1>
-  <div id="contenido">Cargando productos...</div>
+  <h1>Lista de productos:</h1>
+  <ul id="productos">
+    <li>Cargando...</li>
+  </ul>
 
   <script>
-    fetch("https://script.google.com/macros/s/AKfycbyNaWHlDxvId6FQKarcsHF2QprLEbI_bdlAv_BI9myPwJANNUXu9tYmiRrXY0PMnPIH1A/exec") // poné tu URL real
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("contenido").innerHTML = html;
+    fetch("https://script.google.com/macros/s/AKfycbzfhCMXAy7a54Jj9oJIgebLaDLgeJJBu_gbuR8xU-T447hnCqVxdaEoV5yxUijXWtWPGQ/exec") // poné tu URL real
+      .then(res => res.json())
+      .then(lista => {
+        const ul = document.getElementById("productos");
+        ul.innerHTML = ""; // Limpia el "Cargando..."
+        lista.forEach(item => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          ul.appendChild(li);
+        });
       })
       .catch(err => {
-        document.getElementById("contenido").textContent = "Error al cargar productos.";
+        document.getElementById("productos").innerHTML = "<li>Error al cargar datos</li>";
         console.error(err);
       });
   </script>
 </body>
 </html>
+
 
 
 
