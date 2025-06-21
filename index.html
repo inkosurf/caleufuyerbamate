@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Prueba desde TXT externo</title>
+  <title>Prueba desde TXT en GitHub</title>
 </head>
 <body>
   <h1>Contenido dinámico:</h1>
-  <div id="contenido">CargandoOOO...</div>
-<script>
-    fetch("https://www.iassa-sa.com.ar/pruebaborrar.txt")
+  <div id="contenido">Cargando...</div>
+
+  <script>
+    fetch("https://raw.githubusercontent.com/inkosurf/caleufu/main/pruebaborrar.txt")
       .then(response => response.text())
       .then(texto => {
         document.getElementById("contenido").textContent = texto;
@@ -19,6 +19,6 @@
         console.error("Error:", error);
       });
   </script>
-
 </body>
 </html>
+
