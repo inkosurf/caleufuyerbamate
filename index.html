@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Prueba desde TXT en GitHub</title>
+  <meta charset="UTF-8" />
+  <title>Fetch desde Apps Script</title>
 </head>
 <body>
-  <h1>Contenido dinámico:</h1>
+  <h1>Contenido desde Apps Script:</h1>
   <div id="contenido">Cargando...</div>
 
   <script>
-    fetch("https://iassa-sa.com.ar/txt/pruebaborrar.txt")
-      .then(response => response.text())
-      .then(texto => {
-        document.getElementById("contenido").textContent = texto;
+    fetch("https://script.google.com/macros/s/AKfycbxKunnmUrwa-6B-Hv8mP7Oab_LGrgChpGp0LJ6dzopAL7HiU0RqvN3shVyWHD1PZBL9ug/exec") // poné tu URL real
+      .then(res => res.text())
+      .then(txt => {
+        document.getElementById("contenido").textContent = txt;
       })
-      .catch(error => {
+      .catch(err => {
         document.getElementById("contenido").textContent = "Error al cargar contenido.";
-        console.error("Error:", error);
+        console.error(err);
       });
   </script>
 </body>
 </html>
+
 
